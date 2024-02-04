@@ -17,7 +17,7 @@ import (
 	"github.com/freshman-tech/news-demo-starter-files/news"
 )
 
-var tpl = template.Must(template.ParseFiles("./index.html"))
+var tpl = template.Must(template.ParseFiles("index.html"))
 
 type Search struct {
 	Query        string

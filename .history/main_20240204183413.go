@@ -17,7 +17,7 @@ import (
 	"github.com/freshman-tech/news-demo-starter-files/news"
 )
 
-var tpl = template.Must(template.ParseFiles("./index.html"))
+var tpl = template.Must(template.ParseFiles("index.html"))
 
 type Search struct {
 	Query        string
@@ -165,7 +165,7 @@ func main() {
 	mux := http.NewServeMux()
 
 	fs := http.FileServer(http.Dir("assets"))
-	mux.Handle("/assets/", http.StripPrefix("/assets/", fs))
+	mux.Handle("./assets/", http.StripPrefix("./assets/", fs))
 
 	mux.HandleFunc("/search", searchHandler(newsapi, searchCache))
 	mux.HandleFunc("/", indexHandler)

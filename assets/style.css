@@ -9,11 +9,12 @@ html {
 }
 
 :root {
-  --light-green: #00ff00;
-  --dark-green: #003b00;
-  --dark-grey: #777;
-  --light-grey: #dadce0;
+  --light-green: #4c82af;   /* Updated light green color */
+  --dark-green: #1b5e20;    /* Updated dark green color */
+  --dark-grey: #d97e0f;        /* Updated dark grey color */
+  --light-grey: #f2f2f2;    /* Updated light grey color */
 }
+
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
@@ -45,20 +46,27 @@ a.button:hover {
 
 header {
   width: 100%;
-  height: 50px;
+  height: 100px; /* Increase the height */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   display: flex;
   justify-content: space-between;
-  background-color: var(--light-green);
-  padding: 5px 10px;
+  background-color: #ADD8E6; /* Light Blue */
+  padding: 10px 20px; /* Adjust padding for a larger header */
   align-items: center;
+  border-bottom: 5px solid var(--dark-green); /* Add a 3D border effect */
+  box-shadow: 0 0 10px rgba(21, 150, 182, 0.1); /* Add a subtle shadow for a 3D effect */
 }
 
 .logo {
   color: #002200;
+  font-size: 24px; /* Increase the font size */
+  font-weight: bold; /* Add bold font weight for emphasis */
+  text-transform: uppercase; /* Uppercase the text */
+  letter-spacing: 2px; /* Add letter spacing for better visibility */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); /* Add a shadow for a 3D effect */
 }
 
 form {
@@ -88,7 +96,9 @@ form {
   color: var(--dark-grey);
   text-align: center;
   margin-bottom: 15px;
+  margin-top: 120px; /* Adjust margin-top to create space for the header */
 }
+
 
 .search-results {
   list-style: none;
@@ -132,7 +142,7 @@ form {
 }
 
 .pagination {
-  margin-top: 20px;
+  margin-top: 140px; /* Adjust margin-top to create space for the header */
 }
 
 .previous-page {
@@ -144,7 +154,9 @@ form {
     flex-direction: column;
     height: auto;
     padding-bottom: 10px;
+    z-index: 1000; /* Ensure header is on top of other elements */
   }
+
 
   .logo {
     display: inline-block;
@@ -155,7 +167,7 @@ form {
     width: 100%;
   }
 
-  .github-button {
+  .NEWS-button {
     display: none;
   }
 
@@ -170,4 +182,71 @@ form {
   .article-image {
     display: none;
   }
+}
+
+
+ 
+
+/* Add error message styles */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Add this to your CSS, preferably at the end */
+
+.loading-spinner {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 8px solid rgba(255, 255, 255, 0.3);
+  border-top: 8px solid var(--dark-green);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  z-index: 1001; /* Ensure the spinner is above the overlay */
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Additional styles to improve visibility during loading */
+body.loading {
+  overflow: hidden;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+}
+
+/* Style adjustments for better visualization in light mode */
+body.loading .loading-overlay {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+
+body.loading .loading-spinner {
+  border-top: 8px solid #004400;
+}
+
+/* Additional styles for better spacing */
+body.loading #container {
+  margin-top: 50px;
 }
